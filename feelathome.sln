@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "feelathome", "feelathome\feelathome.vcxproj", "{FF6887E7-F3D9-4393-9262-67E182F95B96}"
+	ProjectSection(ProjectDependencies) = postProject
+		{61635BFC-3F91-445B-AC51-0326C6AC3FE4} = {61635BFC-3F91-445B-AC51-0326C6AC3FE4}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recruitexpert", "recruitexpert\recruitexpert.vcxproj", "{61635BFC-3F91-445B-AC51-0326C6AC3FE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF6887E7-F3D9-4393-9262-67E182F95B96}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FF6887E7-F3D9-4393-9262-67E182F95B96}.Debug|Win32.Build.0 = Debug|Win32
+		{FF6887E7-F3D9-4393-9262-67E182F95B96}.Release|Win32.ActiveCfg = Release|Win32
+		{FF6887E7-F3D9-4393-9262-67E182F95B96}.Release|Win32.Build.0 = Release|Win32
+		{61635BFC-3F91-445B-AC51-0326C6AC3FE4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{61635BFC-3F91-445B-AC51-0326C6AC3FE4}.Debug|Win32.Build.0 = Debug|Win32
+		{61635BFC-3F91-445B-AC51-0326C6AC3FE4}.Release|Win32.ActiveCfg = Release|Win32
+		{61635BFC-3F91-445B-AC51-0326C6AC3FE4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
