@@ -31,3 +31,8 @@ set<ResumeItem>& CRecruitExpert::GetAllResumes()
 {
     return m_setResumes;
 }
+
+void CRecruitExpert::ClearResumes()
+{
+    m_setResumes.clear();
+}

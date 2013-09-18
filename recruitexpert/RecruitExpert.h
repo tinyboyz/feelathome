@@ -46,6 +46,7 @@ public:
 
     void ImportResumes(CString strFolderPath);
     void AddSingleResume(CString strFileName, CString strFilePath);
+    void ClearResumes();
     set<ResumeItem>& GetAllResumes();
 
 protected:

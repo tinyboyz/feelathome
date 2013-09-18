@@ -36,4 +36,6 @@ public:
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg void OnFileOpen();
     afx_msg void OnDirectoryOpen();
+    afx_msg void OnClearList();
+    afx_msg void OnAnalyse();
 };

@@ -66,6 +66,8 @@ BEGIN_MESSAGE_MAP(CMainDlg, CDialogEx)
     ON_WM_SIZE()
     ON_COMMAND(ID_FILE_OPEN, &CMainDlg::OnFileOpen)
     ON_COMMAND(ID_DIRECTORY_OPEN, &CMainDlg::OnDirectoryOpen)
+    ON_COMMAND(ID_CLEAR_LIST, &CMainDlg::OnClearList)
+    ON_COMMAND(ID_ANALYSE, &CMainDlg::OnAnalyse)
 END_MESSAGE_MAP()
 
 
@@ -163,7 +165,7 @@ int CMainDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     // TODO:  在此添加您专用的创建代码
     CRect ClientRect;
-    GetClientRect (&ClientRect);
+    GetClientRect(&ClientRect);
     if (!m_lcexMain.Create(WS_CHILD | WS_VISIBLE | LVS_REPORT, ClientRect, this, 10001))
     {
         return -1;
@@ -187,11 +189,11 @@ void CMainDlg::OnSize(UINT nType, int cx, int cy)
 void CMainDlg::OnFileOpen()
 {
     // TODO: 在此添加命令处理程序代码
-    CFileDialog dlg(TRUE, _T("Feel At Home"), NULL, OFN_FILEMUSTEXIST| OFN_HIDEREADONLY, _T("MS Word Documents (*.doc)|*.doc|"));
+    CFileDialog dlg(TRUE, _T("Feel At Home"), NULL, OFN_FILEMUSTEXIST | OFN_HIDEREADONLY, _T("MS Word Documents (*.doc)|*.doc|"));
     if (dlg.DoModal() == IDOK)
     {
         m_recruitExpert.AddSingleResume(dlg.GetFileName(), dlg.GetFolderPath());
-        m_lcexMain.AddResumes(m_recruitExpert.GetAllResumes());
+        m_lcexMain.UpdateResumes(m_recruitExpert.GetAllResumes());
     }
 }
 
@@ -199,10 +201,24 @@ void CMainDlg::OnFileOpen()
 void CMainDlg::OnDirectoryOpen()
 {
     // TODO: 在此添加命令处理程序代码
-    CFolderDialog dlg(_T( "从文件夹导入" ), _T( "c:\\" ), this);
+    CFolderDialog dlg(_T("从文件夹导入"), _T("C:\\"), this);
     if (dlg.DoModal() == IDOK)
     {
         m_recruitExpert.ImportResumes(dlg.GetFolderPath());
-        m_lcexMain.AddResumes(m_recruitExpert.GetAllResumes());
+        m_lcexMain.UpdateResumes(m_recruitExpert.GetAllResumes());
     } 
+}
+
+
+void CMainDlg::OnClearList()
+{
+    // TODO: 在此添加命令处理程序代码
+    m_recruitExpert.ClearResumes();
+    m_lcexMain.DeleteAllItems();
+}
+
+
+void CMainDlg::OnAnalyse()
+{
+    // TODO: 在此添加命令处理程序代码
 }

@@ -7,7 +7,7 @@ public:
     virtual ~CListCtrlEx(void);
 
     void Resize(int cx, int cy);
-    BOOL AddResumes(set<ResumeItem>& setResumes);
+    BOOL UpdateResumes(set<ResumeItem>& setResumes);
 
 protected:
     CStringArray m_strArrayHeader;

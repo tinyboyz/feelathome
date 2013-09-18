@@ -41,14 +41,31 @@ int CListCtrlEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
     return 0;
 }
 
-BOOL CListCtrlEx::AddResumes(set<ResumeItem>& setResumes)
+BOOL CListCtrlEx::UpdateResumes(set<ResumeItem>& setResumes)
 {
+    int nRow = 0;
+    int nIndex = 0;
     set<ResumeItem>::iterator iter;
+    LVFINDINFO info;
+    info.flags = LVFI_STRING;
+
     for (iter=setResumes.begin();iter != setResumes.end();++iter)
     {
-        int nRow = InsertItem(0, _T(""));
-        SetItemText(nRow, 0, iter->m_strFileName);
-        SetItemText(nRow, 1, iter->m_strPathName);
+        info.psz = iter->m_strFileName;
+        if ((nIndex = FindItem(&info)) != -1)
+        {
+            SetItemText(nIndex, 0, iter->m_strFileName);
+            SetItemText(nIndex, 1, iter->m_strPathName);
+        } 
+        else
+        {
+            nRow = InsertItem(0, _T(""));
+            SetItemText(nRow, 0, iter->m_strFileName);
+            SetItemText(nRow, 1, iter->m_strPathName);
+        }
     }
+    SetRedraw(TRUE);
+    Invalidate();
+    UpdateWindow();
     return TRUE;
 }
